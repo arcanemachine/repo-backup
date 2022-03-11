@@ -1,0 +1,5 @@
+export GITHUB_USERNAME=arcanemachine
+export GITHUB_ACCESS_TOKEN=your-github-access-token
+
+export GITLAB_USERNAME=arcanemachine
+export GITLAB_ACCESS_TOKEN=your-gitlab-access-token
