@@ -1,9 +1,11 @@
 #!/bin/sh
 
-source $(dirname "$0")/.envrc
+cd $(dirname "$0")
 
-dirname=gitlab-backup-$(date "+%Y-%m-%d-%H-%M")
-mkdir "$dirname"
+. ./.envrc
+
+dirname=./backups/gitlab-backup-$(date "+%Y-%m-%d-%H-%M")
+mkdir -p "$dirname"
 cd $dirname
 
 username=$GITLAB_USERNAME

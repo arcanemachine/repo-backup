@@ -1,9 +1,11 @@
 #!/bin/sh
 
-source $(dirname "$0")/.envrc
+cd $(dirname "$0")
 
-dirname=github-backup-$(date "+%Y-%m-%d-%H-%M")
-mkdir "$dirname"
+. ./.envrc
+
+dirname=./backups/github-backup-$(date "+%Y-%m-%d-%H-%M")
+mkdir -p "$dirname"
 cd $dirname
 
 #change these vars:
