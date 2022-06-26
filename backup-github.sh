@@ -2,15 +2,20 @@
 
 cd $(dirname "$0")
 
-. ./.envrc
+# source dotenv
+set -o allexport; source .env; set +o allexport
 
-dirname=./backups/github-backup-$(date "+%Y-%m-%d-%H-%M")
+dirname=./backup-dir/github-backup-$(date "+%Y-%m-%d-%H-%M")
 mkdir -p "$dirname"
 cd $dirname
 
-#change these vars:
+# vars should be modified in the .env file to avoid commiting them to the repo.
+# if you don't care, just modify them here
 username=$GITHUB_USERNAME
 access_token=$GITHUB_ACCESS_TOKEN
+
+echo "Backing up your GitHub repos...
+"
 
 curl -H "Accept: application/vnd.github.nebula-preview+json" \
     -H "Authorization: token $access_token" \

@@ -2,14 +2,20 @@
 
 cd $(dirname "$0")
 
-. ./.envrc
+# source dotenv
+set -o allexport; source .env; set +o allexport
 
-dirname=./backups/gitlab-backup-$(date "+%Y-%m-%d-%H-%M")
+dirname=./backup-dir/gitlab-backup-$(date "+%Y-%m-%d-%H-%M")
 mkdir -p "$dirname"
 cd $dirname
 
+# vars should be modified in the .env file to avoid commiting them to the repo:
+# if you don't care, just modify them here
 username=$GITLAB_USERNAME
 access_token=$GITLAB_ACCESS_TOKEN
+
+echo "Backing up your GitLab repos...
+"
 
 curl --header "Private-Token: $access_token" "https://gitlab.com/api/v4/users/$username/projects" \
    | jq -r '.[] | .id, .name' \

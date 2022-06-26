@@ -1,13 +1,13 @@
 # repo-backup
 
-Backup your GitHub and GitLab repos. Forked from [this repo](https://github.com/alexadam/repo-backup) (His README has more thorough instructions on obtaining access tokens, but this one is easier to use IMO).
+Backup your GitHub and GitLab repos. Forked from [this repo](https://github.com/alexadam/repo-backup) (Their README has more thorough instructions on obtaining access tokens, but this one is easier to use IMO).
 
 
 ### Instructions
 
-Environment variables should be stored in `.envrc`. A template can be copied from `.envrc.example`.
+Your access tokens should be stored in `.env` so they can be used as environment variables in the scripts. Any data stored in `.env` will not be committed to the repo. A template can be copied from `.env.example`.
 
-After copying your access token(s) to `.envrc`, just run the `backup-gitlab.sh` and/or `backup-github.sh` script to get a backup of all your repos.
+After copying your access token(s) to `.env`, just run the `backup-gitlab.sh` and/or `backup-github.sh` script to get a backup of all your repos.
 
 
 ### Access Tokens

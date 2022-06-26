@@ -1,2 +1,2 @@
-.envrc
-/backups/
+.env
+/backup-dir/
